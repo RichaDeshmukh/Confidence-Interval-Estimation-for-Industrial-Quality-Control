@@ -1,21 +1,21 @@
 # Confidence Interval Estimation for Industrial Quality Control
 
-Statistical estimation of print-head durability under destructive testing conditions using Python[cite: 3, 4]. This repository demonstrates how to construct confidence intervals for population means under two foundational statistical scenarios: when population variance is unknown (Student's $t$-distribution) versus when population variance is known (Standard Normal $Z$-distribution)[cite: 3, 4].
+Statistical estimation of print-head durability under destructive testing conditions using Python. This repository demonstrates how to construct confidence intervals for population means under two foundational statistical scenarios: when population variance is unknown (Student's $t$-distribution) versus when population variance is known (Standard Normal $Z$-distribution).
 
 ---
 
 ## 📌 Problem Scenario & Context
 
-In manufacturing quality control, destructive testing ensures physical items meet reliability thresholds by operating them until failure[cite: 4]. Because each tested unit is destroyed, sample sizes are constrained by cost[cite: 4].
+In manufacturing quality control, destructive testing ensures physical items meet reliability thresholds by operating them until failure[cite: 4]. Because each tested unit is destroyed, sample sizes are constrained by cost.
 
-A manufacturer randomly samples $n = 15$ print-heads to estimate mean lifespan (measured in millions of printed characters)[cite: 3, 4]:
+A manufacturer randomly samples $n = 15$ print-heads to estimate mean lifespan (measured in millions of printed characters):
 ```text
 [1.13, 1.55, 1.43, 0.92, 1.25, 1.36, 1.32, 0.85, 1.07, 1.48, 1.20, 1.33, 1.18, 1.22, 1.29]
 ```[cite: 3, 4]
 
 The objective is to compute and compare **99% Confidence Intervals** under two core settings[cite: 3, 4]:
-1. **Unknown Population Standard Deviation ($\sigma$)**: Using sample standard deviation $s$ and the Student's $t$-distribution ($df = n - 1$)[cite: 3, 4].
-2. **Known Population Standard Deviation ($\sigma = 0.2$)**: Using the Standard Normal ($Z$) distribution[cite: 3, 4].
+1. **Unknown Population Standard Deviation ($\sigma$)**: Using sample standard deviation $s$ and the Student's $t$-distribution ($df = n - 1$)
+2. **Known Population Standard Deviation ($\sigma = 0.2$)**: Using the Standard Normal ($Z$) distribution
 
 ---
 
@@ -39,7 +39,10 @@ $$\bar{x} \pm z_{\alpha/2} \times \left(\frac{\sigma}{\sqrt{n}}\right)$$
 
 * Population Std Dev ($\sigma$): `0.2000`[cite: 3, 4]
 * Critical Value ($z_{0.005}$): `2.5758`[cite: 3]
-* **99% Confidence Interval**: **[1.1057, 1.3717]** million characters[cite: 3]
+* **99% Confidence Interval**: **[1.1057, 1.3717]** million characters
+
+
+📈 Key TakeawaysHeavier Tails: The $t$-interval is wider than the $Z$-interval because the $t$-distribution accounts for the additional uncertainty introduced by estimating $\sigma$ with the sample standard deviation $s$.Precision Trade-off: Prior knowledge of population variance ($\sigma$) produces a tighter interval, reducing margin of error without sacrificing the 99% confidence level
 
 ---
 
